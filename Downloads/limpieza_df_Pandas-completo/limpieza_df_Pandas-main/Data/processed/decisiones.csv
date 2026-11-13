@@ -1,0 +1,21 @@
+paso,columna,accion,filas_afectadas,justificacion
+numericos,asistencia_pct,quitar % y pasar '-' a nulo,502,Era texto por el % y los guiones. Si no se convierte no se pueden sacar cuartiles.
+numericos,horas_trabajo_semana,pasar '-' a nulo y convertir,2822,El guion es un dato faltante. Se arregla en el paso 8 segun si el estudiante trabaja.
+numericos,distancia_km,999 a nulo,152,"999 es un codigo de sin dato, no una distancia real."
+categorias,programa,unificar escritura,260,"Son el mismo valor escrito distinto (mayusculas, espacios, tildes). Separados partirian los grupos."
+categorias,jornada,unificar escritura,485,"Son el mismo valor escrito distinto (mayusculas, espacios, tildes). Separados partirian los grupos."
+categorias,genero,unificar escritura,559,"Son el mismo valor escrito distinto (mayusculas, espacios, tildes). Separados partirian los grupos."
+categorias,ciudad_procedencia,unificar escritura,645,"Son el mismo valor escrito distinto (mayusculas, espacios, tildes). Separados partirian los grupos."
+fechas,fecha_matricula,convertir los dos formatos a fecha,3052,Habia fechas en AAAA-MM-DD y en DD/MM/AAAA. Se leen por separado y se juntan.
+duplicados,todas,eliminar filas repetidas,150,"Dos estudiantes distintos no pueden tener las 23 columnas iguales, incluido el id."
+faltantes,promedio_acumulado,eliminar filas,298,Una nota no se puede inventar y imputar el promedio cambiaria los resultados.
+faltantes,ciudad_procedencia,rellenar con 'Sin dato',96,Son pocos y es una categoria; asi no se pierde la fila.
+faltantes,tipo_colegio,rellenar con 'Sin dato',145,Son pocos y es una categoria; asi no se pierde la fila.
+faltantes,motivo_retiro,dejar nulo,6562,No es error: solo aplica a los desertores.
+faltantes,distancia_km,dejar nulo,334,No se usa en las preguntas y no conviene inventar la distancia.
+faltantes,asistencia_pct,dejar nulo,197,No se sabe la asistencia real. Esas filas quedan fuera de la pregunta 5.
+imposibles,edad,reemplazar por la mediana,12,Edades de 150 o 12 anos son errores de registro.
+imposibles,promedio_acumulado,eliminar filas,15,"Valores como 45, 62 o 78 no son notas validas y no se sabe cual era la real."
+imposibles,horas_trabajo_semana,poner 0 si no trabaja,5394,"Si no trabaja, las horas son 0."
+imposibles,horas_trabajo_semana,reemplazar por la mediana de quienes trabajan,29,Mas de 100 horas a la semana no es realista; la mediana casi no cambia con valores extremos.
+variables,desertor y cuartil_asistencia,crear columnas,9687,Los cuartiles dejan cuatro grupos parecidos en tamano y son mas faciles de comparar que cada valor.
